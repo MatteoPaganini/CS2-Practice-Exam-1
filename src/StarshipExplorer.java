@@ -3,18 +3,46 @@ import java.sql.Array;
 public class StarshipExplorer {
 
     public static void main(String[] args) {
-        StarshipExplorer starshipExplorer = new StarshipExplorer();
+        StarshipExplorer starshipExplorer = new StarshipExplorer(); //new object
+
+        starshipExplorer.displayAliens();
+
+        if (starshipExplorer.checkEnergy() == true){
+            System.out.println("There are at least two equal Alien energy levels");
+        }
+        else {
+            System.out.println("There are no two equal Alien energy levels");
+        }
     }
 
+    public Alien[] aliens;
+
     public StarshipExplorer(){
-        System.out.println("Hello World! Good luck on your exams!");
+        System.out.println("Hello World! Good luck on your exams!" + "\n");
+
+        aliens = new Alien[50];
+        for (int i = 0; i < 50; i++){
+            aliens[i] = new Alien((int)(Math.random()*75), (int)(Math.random()*100));
+        }
 
         System.out.println(decipher(alienLanguage));
+    }
 
-        Alien[] aliens = new Alien[50];
-        for (int i = 0; i < 50; i++){
-            aliens[i] = new Alien();
+    public void displayAliens(){ //parameter most likely not needed
+        for(Alien alien : aliens){
+            alien.printInfo();
         }
+    }
+
+    public boolean checkEnergy(){
+        for (int i = 0; i < aliens.length; i++){
+            for (int m = i + 1; m < aliens.length; m++){
+                if (aliens[i].getEnergyLevel() == aliens[m].getEnergyLevel()){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 

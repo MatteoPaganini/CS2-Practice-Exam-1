@@ -3,10 +3,6 @@ public class Alien {
     private int energyLevel;
     private int hostilityIndex;
 
-//    public static void main(String[] args) {
-//        System.out.println("");
-//    }
-
     public Alien(int pEnergyLevel, int pHostilityIndex){
         energyLevel = pEnergyLevel;
         hostilityIndex = pHostilityIndex;
