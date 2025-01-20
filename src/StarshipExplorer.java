@@ -25,7 +25,10 @@ public class StarshipExplorer {
             aliens[i] = new Alien((int)(Math.random()*75), (int)(Math.random()*100));
         }
 
+        displayAliens();
+        System.out.println("Energy level is: " + checkEnergy());
         System.out.println(decipher(alienLanguage));
+
     }
 
     public void displayAliens(){ //parameter most likely not needed
@@ -36,8 +39,8 @@ public class StarshipExplorer {
 
     public boolean checkEnergy(){
         for (int i = 0; i < aliens.length; i++){
-            for (int m = i + 1; m < aliens.length; m++){
-                if (aliens[i].getEnergyLevel() == aliens[m].getEnergyLevel()){
+            for (int j = i + 1; j < aliens.length; j++){
+                if (aliens[i].getEnergyLevel() == aliens[j].getEnergyLevel()){
                     return true;
                 }
             }
